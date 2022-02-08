@@ -14,6 +14,10 @@ public class MainPage {
 
     @FindBy(css = "[data-test='site-header-search-action']")
     public WebElement searchButton;
+//added shopButton
+    @FindBy(xpath = "/html[1]/body[1]/app-root[1]/header[1]/pwwgen-navbar[1]/nav[1]/ul[1]/li[1]/span[2]")
+    public WebElement shopButton;
+
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
