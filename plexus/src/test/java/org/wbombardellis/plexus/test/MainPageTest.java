@@ -22,8 +22,6 @@ public class MainPageTest {
 
     @BeforeEach
     public void setUpClass(){
-        System.setProperty("webdriver.gecko.driver","/home/wbombardellis/Selenium/geckodriver-v0.30.0-linux64/geckodriver");
-
         driver = new FirefoxDriver();
         homePage = new HomePage(driver, defaultWaitTimeout);
     }
