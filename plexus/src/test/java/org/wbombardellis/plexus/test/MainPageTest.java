@@ -21,7 +21,7 @@ public class MainPageTest {
 
     private WebDriver driver;
     private HomePage homePage;
-    private final Logger logger = LogManager.getLogger(MainPageTest.class);
+    private static final Logger logger = LogManager.getLogger(MainPageTest.class);
 
     @BeforeEach
     public void setUpClass(){
@@ -62,7 +62,7 @@ public class MainPageTest {
         //Assert Sign in button has correct text
         var signInButton = homePage.signInButton();
         String sigInText = signInButton.getText();
-        logger.info("Sign in button text: ", sigInText);
+        logger.info("Sign in button text: " + sigInText);
         assertEquals("Sign In", sigInText);
 
         //Navigate to sign in page
@@ -72,7 +72,7 @@ public class MainPageTest {
         logger.info("Navigate to sign in page");
 
         //Assert URL matches the expected value
-        logger.info("Sign in page URL: ",driver.getCurrentUrl());
+        logger.info("Sign in page URL: " + driver.getCurrentUrl());
         assertTrue(driver.getCurrentUrl().matches("https\\://login\\.plexusworldwide\\.com.*"));
     }
 }
