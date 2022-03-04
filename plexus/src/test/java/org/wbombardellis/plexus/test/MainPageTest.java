@@ -1,5 +1,7 @@
 package org.wbombardellis.plexus.test;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,7 @@ public class MainPageTest {
 
     private WebDriver driver;
     private HomePage homePage;
+    private final Logger logger = LogManager.getLogger(MainPageTest.class);
 
     @BeforeEach
     public void setUpClass(){
@@ -36,34 +39,40 @@ public class MainPageTest {
         //Open the home page
         homePage.home();
         var overlay = homePage.acceptCookiesOverlay();
+        logger.info("Home page loaded");
 
         //Switch to accept cookies iframe
         var acceptCookiesIframe = homePage.acceptCookiesIframe();
         driver.switchTo().frame(acceptCookiesIframe);
+        logger.info("Switched to accept cookies iframe");
 
         //Accept all cookies
         var acceptCookiesButton = homePage.acceptCookiesButton();
         new WebDriverWait(driver, defaultWaitTimeout)
                 .until(d -> acceptCookiesButton.isEnabled());
         acceptCookiesButton.click();
+        logger.info("Accepted all cookies");
 
         //Back to default iframe, wait for overlay to disappear
         driver.switchTo().defaultContent();
         new WebDriverWait(driver, defaultWaitTimeout)
                 .until(ExpectedConditions.stalenessOf(acceptCookiesIframe));
+        logger.info("Back to default iframe");
 
         //Assert Sign in button has correct text
         var signInButton = homePage.signInButton();
         String sigInText = signInButton.getText();
+        logger.info("Sign in button text: ", sigInText);
         assertEquals("Sign In", sigInText);
 
         //Navigate to sign in page
         new WebDriverWait(driver, defaultWaitTimeout)
                 .until(ExpectedConditions.elementToBeClickable(signInButton));
         signInButton.click();
+        logger.info("Navigate to sign in page");
 
         //Assert URL matches the expected value
-        System.out.println(driver.getCurrentUrl());
+        logger.info("Sign in page URL: ",driver.getCurrentUrl());
         assertTrue(driver.getCurrentUrl().matches("https\\://login\\.plexusworldwide\\.com.*"));
     }
 }
