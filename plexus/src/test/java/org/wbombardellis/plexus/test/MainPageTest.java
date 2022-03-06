@@ -7,10 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.wbombardellis.plexus.model.HomePage;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +28,14 @@ public class MainPageTest {
     private static final Logger logger = LogManager.getLogger(MainPageTest.class);
 
     @BeforeEach
-    public void setUpClass(){
-        driver = new FirefoxDriver();
+    public void setUp() throws MalformedURLException {
+        var remoteWebDriverURL = System.getProperty("org.wbombardellis.plexus.webdriver");
+        logger.info("Remote web driver URL: " + remoteWebDriverURL);
+        if (remoteWebDriverURL != null)
+            driver = new RemoteWebDriver(new URL(remoteWebDriverURL), new FirefoxOptions());
+        else
+            driver = new FirefoxDriver();
+
         homePage = new HomePage(driver, defaultWaitTimeout);
     }
 
@@ -73,6 +83,6 @@ public class MainPageTest {
 
         //Assert URL matches the expected value
         logger.info("Sign in page URL: " + driver.getCurrentUrl());
-        assertTrue(driver.getCurrentUrl().matches("https\\://login\\.plexusworldwide\\.com.*"));
+        assertTrue(driver.getCurrentUrl().matches(".*login.*"));
     }
 }
