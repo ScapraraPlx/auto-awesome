@@ -10,3 +10,5 @@ Automation Test Repo
 - Tests are executed over JUnit using Selenium
 - You must put the path to the Gecko driver to your path environment variable prior to executing the tests
 - You must add the following JVM param to your run configuration if you want test logging: `-Dlog4j.configurationFile=./target/test-classes/log4j-test.xml`
+- Alternatively you can also run the maven test goal `mvn test`
+
