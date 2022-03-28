@@ -48,10 +48,10 @@ public class MainPageTest {
     public void SignInButtonTest() {
         //Open the home page
         homePage.home();
-        var overlay = homePage.acceptCookiesOverlay();
         logger.info("Home page loaded");
 
-        //Switch to accept cookies iframe
+        /*//Switch to accept cookies iframe
+        var overlay = homePage.acceptCookiesOverlay();
         var acceptCookiesIframe = homePage.acceptCookiesIframe();
         driver.switchTo().frame(acceptCookiesIframe);
         logger.info("Switched to accept cookies iframe");
@@ -67,7 +67,7 @@ public class MainPageTest {
         driver.switchTo().defaultContent();
         new WebDriverWait(driver, defaultWaitTimeout)
                 .until(ExpectedConditions.stalenessOf(acceptCookiesIframe));
-        logger.info("Back to default iframe");
+        logger.info("Back to default iframe");*/
 
         //Assert Sign in button has correct text
         var signInButton = homePage.signInButton();
