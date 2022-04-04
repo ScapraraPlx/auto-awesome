@@ -15,6 +15,7 @@
         <junit.platform.version>1.8.1</junit.platform.version>
         <selenium.version>4.0.0</selenium.version>
         <log4j.version>2.17.2</log4j.version>
+        <cucumber.version>7.2.3</cucumber.version>
     </properties>
 
     <dependencies>
@@ -57,6 +58,12 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
