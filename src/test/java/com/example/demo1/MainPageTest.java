@@ -1,24 +1,23 @@
 package com.example.demo1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+
 
 public class MainPageTest {
     private WebDriver driver;
     private MainPage mainPage;
 
+String url ="https://plexusworldwide.com/";
     @BeforeTest
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
@@ -29,7 +28,7 @@ public class MainPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.jetbrains.com/");
+        driver.get(url);
 
         mainPage = new MainPage(driver);
     }
@@ -40,33 +39,32 @@ public class MainPageTest {
     }
 
     @Test
-    public void search() {
-        mainPage.searchButton.click();
+    public void validateProductName() {
+String expectedProductName ="Joyōme™ Multi-Action Collagen Complex";
+        String actualTitle = driver.getTitle();
 
-        WebElement searchField = driver.findElement(By.cssSelector("[data-test='search-input']"));
-        searchField.sendKeys("Selenium");
 
-        WebElement submitButton = driver.findElement(By.cssSelector("button[data-test='full-search-button']"));
-        submitButton.click();
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.titleIs(actualTitle));
 
-        WebElement searchPageField = driver.findElement(By.cssSelector("input[data-test='search-input']"));
-        assertEquals(searchPageField.getAttribute("value"), "Selenium");
+
+
+String productName = mainPage.product.getText();
+
+        Assert.assertEquals(productName,expectedProductName);
+
     }
 
     @Test
-    public void toolsMenu() {
-        mainPage.toolsMenu.click();
+    public void NaviagteToProducts() {
+        mainPage.shopBtn.click();
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(url));
 
-        WebElement menuPopup = driver.findElement(By.cssSelector(".main-submenu__content"));
-        assertTrue(menuPopup.isDisplayed());
+
     }
 
-    @Test
+    @Test @Ignore
     public void navigationToAllTools() {
-        mainPage.seeAllToolsButton.click();
-
-        WebElement productsList = driver.findElement(By.id("products-page"));
-        assertTrue(productsList.isDisplayed());
-        assertEquals(driver.getTitle(), "All Developer Tools and Products by JetBrains");
     }
 }
