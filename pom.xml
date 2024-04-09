@@ -29,9 +29,22 @@
         <lambdaj.version>2.3.3</lambdaj.version>
         <junit.version>4.13.2</junit.version>
         <serenity-rest-assured.version>4.1.6</serenity-rest-assured.version>
+        <jackson-databind.version>2.17.0</jackson-databind.version>
+        <unitils-core.version>3.4.2</unitils-core.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+            <version>${unitils-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-databind.version}</version>
+        </dependency>
         <dependency>
             <groupId>net.serenity-bdd</groupId>
             <artifactId>serenity-rest-assured</artifactId>

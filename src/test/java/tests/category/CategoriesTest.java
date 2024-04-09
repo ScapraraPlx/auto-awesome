@@ -12,9 +12,11 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Comparator;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.unitils.reflectionassert.ReflectionAssert.*;
 
 
 @RunWith(SerenityRunner.class)
@@ -26,7 +28,8 @@ public class CategoriesTest {
     @Steps
     private ProductDetailsPageSteps productDetailsPageSteps;
 
-    private final CategoriesApiSteps categoriesApiSteps = new CategoriesApiSteps();
+    @Steps
+    private CategoriesApiSteps categoriesApiSteps;
 
     private static final String REQUESTED_PRODUCT_TITLE = "Samsung galaxy s6";
 
@@ -41,16 +44,17 @@ public class CategoriesTest {
 
         // Receive the list of the available categories from the site
         final List<CategoryItemDTO> actualCategoryItems = categoryPageSteps.getCategoryItems();
+        actualCategoryItems.sort(Comparator.comparing(CategoryItemDTO::getTitle));
 
         // Receive the list of the available categories from the API
         final List<CategoryItemDTO> expectedCategoryItems = categoriesApiSteps.getCategoryItems("phone");
+        expectedCategoryItems.sort(Comparator.comparing(CategoryItemDTO::getTitle));
 
         // Compare expected and actual results
-        Serenity.reportThat("Mismatching between expected and actual categories found.",
-                () -> assertThat(actualCategoryItems)
-                        .usingRecursiveComparison()
-                        .ignoringCollectionOrder()
-                        .isEqualTo(expectedCategoryItems)
+        assertReflectionEquals(
+                "Mismatching between expected and actual categories found.",
+                expectedCategoryItems,
+                actualCategoryItems
         );
 
         // Navigate to the product details page

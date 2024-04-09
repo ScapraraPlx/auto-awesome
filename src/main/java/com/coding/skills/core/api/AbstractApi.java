@@ -6,10 +6,11 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.rest.SerenityRest;
+import net.thucydides.core.steps.ScenarioSteps;
 
 import java.util.List;
 
-public abstract class AbstractApi {
+public abstract class AbstractApi extends ScenarioSteps {
 
     private static final String API_BASE_URL = "https://api.demoblaze.com";
 
