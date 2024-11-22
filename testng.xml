@@ -1,0 +1,10 @@
+<suite name="AllureTestSuite">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="AllureTest">
+        <classes>
+            <class name="application.WebPageTest"/>
+        </classes>
+    </test>
+</suite>
