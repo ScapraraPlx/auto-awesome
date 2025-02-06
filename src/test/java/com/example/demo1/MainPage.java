@@ -6,14 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
-    @FindBy(css = "a.wt-button_mode_primary")
-    public WebElement seeAllToolsButton;
 
-    @FindBy(css = "nav > [data-test-marker=\"Developer Tools\"]")
-    public WebElement toolsMenu;
+    @FindBy(xpath = "//*[@data-testid=\"menu-item\"]//span[text()='About']")
+    public WebElement aboutbutton;
 
-    @FindBy(css = "[data-test='site-header-search-action']")
-    public WebElement searchButton;
+    @FindBy(xpath = "//*[@data-testid=\"menu-item\"]//span[text()='Shop']")
+    public WebElement shopButton;
 
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
