@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo1.MainPageTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 53.542 s <<< FAILURE! - in com.example.demo1.MainPageTest
+navigationToAllTools(com.example.demo1.MainPageTest)  Time elapsed: 10.117 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"a.wt-button_mode_primary"}
+  (Session info: chrome=133.0.6943.53)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Sais-MacBook-Pro.local', ip: '2600:8800:284:9a00:0:0:0:d8fe%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.2', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.53, chrome: {chromedriverVersion: 133.0.6943.53 (9a80935019b0..., userDataDir: /var/folders/nt/p2r825cd3rn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56758}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6bf7f9851a1da01a36dc5aa5a1057716
+*** Element info: {Using=css selector, value=a.wt-button_mode_primary}
+	at com.example.demo1.MainPageTest.navigationToAllTools(MainPageTest.java:66)
+
+search(com.example.demo1.MainPageTest)  Time elapsed: 10.136 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":"[data-test='search-input']"}
+  (Session info: chrome=133.0.6943.53)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Sais-MacBook-Pro.local', ip: '2600:8800:284:9a00:0:0:0:d8fe%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.2', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.53, chrome: {chromedriverVersion: 133.0.6943.53 (9a80935019b0..., userDataDir: /var/folders/nt/p2r825cd3rn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56877}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 20cbcd2caf20d2f2b8b60ea061967f55
+*** Element info: {Using=css selector, value=[data-test='search-input']}
+	at com.example.demo1.MainPageTest.search(MainPageTest.java:46)
+
+toolsMenu(com.example.demo1.MainPageTest)  Time elapsed: 10.12 s  <<< FAILURE!
+org.openqa.selenium.NoSuchElementException: 
+no such element: Unable to locate element: {"method":"css selector","selector":".main-submenu__content"}
+  (Session info: chrome=133.0.6943.53)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'Sais-MacBook-Pro.local', ip: '2600:8800:284:9a00:0:0:0:d8fe%en0', os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '15.2', java.version: '23.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 133.0.6943.53, chrome: {chromedriverVersion: 133.0.6943.53 (9a80935019b0..., userDataDir: /var/folders/nt/p2r825cd3rn...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56977}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 2cda44bd08de5ea53eacdb69f3932854
+*** Element info: {Using=css selector, value=.main-submenu__content}
+	at com.example.demo1.MainPageTest.toolsMenu(MainPageTest.java:60)
+
