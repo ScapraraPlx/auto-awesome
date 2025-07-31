@@ -1,3 +1,26 @@
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+*.ipr
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Allure report directories
+allure-report/
+allure-results/
+*.json
+
+# TestNG reports
+test-output/
+surefire-reports/
+
 # Compiled class file
 *.class
 
