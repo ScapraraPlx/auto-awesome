@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Demo Suite" verbose="1" parallel="false">
+    <test name="Demo Tests">
+        <classes>
+            <class name="com.example.demo1.tests.ArtemTests"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="com.example.demo1.listeners.TestListener"/>
+    </listeners>
+</suite>
